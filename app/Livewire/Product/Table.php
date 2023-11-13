@@ -41,7 +41,7 @@ class Table extends Component
         $this->category_id = $product->category->id;
         $this->stock = $product->stock;
         $this->price = $product->price ;
-
+    
         $this->dispatch('show-edit-product-modal');
     }
 

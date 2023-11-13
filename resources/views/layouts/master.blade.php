@@ -149,15 +149,15 @@
                         </li>
                         <li class="nav-header">TRANSACTION</li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('transaction.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-cart-plus"></i>
                                 <p>
-                                    Sale
+                                    Order
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('history.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-clock"></i>
                                 <p>
                                     History
