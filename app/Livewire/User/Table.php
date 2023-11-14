@@ -25,6 +25,8 @@ class Table extends Component
             'role' => 'required',
         ]);
 
+        $data['password'] = bcrypt($data['password']);
+
         User::create($data);
         session()->flash('success', 'User has been created successfully');
         $this->resetInput();
@@ -37,7 +39,7 @@ class Table extends Component
         $this->user_id = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->password = $user->email;
+        $this->password = $user->password;
         $this->role = $user->role;
 
         $this->dispatch('show-edit-user-modal');
@@ -51,6 +53,8 @@ class Table extends Component
             'password' => 'required|min:3',
             'role' => 'required',
         ]);
+
+        $data['password'] = bcrypt($data['password']);
 
         User::where('id', $this->user_id)->update($data);
         session()->flash('message', 'User has been updated successfully');

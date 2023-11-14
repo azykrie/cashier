@@ -103,7 +103,9 @@
                                         type="text" class="form-control" disabled>
                                 </div>
                                 <div class="card-body">
+                                    @if (!empty($transaction))
                                     <a href="{{ url('transaction/invoice') }}" class="btn btn-warning">Print</a>
+                                    @endif  
                                     <button wire:click='save' type="submit" class="btn btn-info">Pay</button>
                                 </div>
                             </table>

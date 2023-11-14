@@ -24,23 +24,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard.index');
+//     })->name('dashboard');
+// });
+
+Route::middleware(['auth'])->group(function () {
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/user', [UserController::class, 'index'])->name('user.index');
+        Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+        Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
+        Route::get('/transaction/invoice', [InvoiceController::class, 'pdf']);
+    });
+
+    Route::group(['middleware' => ['role:cashier,admin']], function () {
+        Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
+    });
 });
-
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
-route::get('/history', [HistoryController::class, 'index'])->name('history.index');
-Route::get('/transaction/invoice', [InvoiceController::class, 'pdf']);
-
-

@@ -45,7 +45,7 @@
                                             <td>{{ $product->product_name }}</td>
                                             <td>{{ $product->category->category_name }}</td>
                                             <td>{{ $product->stock }}</td>
-                                            <td>{{ $product->price }}</td>
+                                            <td>Rp. {{number_format($product->price)}}</td>
                                             <td>
                                                 <button wire:click='edit({{ $product->id }})' type="button"
                                                     class="btn btn-warning">EDIT</button>
