@@ -37,7 +37,7 @@
                                 @endforeach
                             </table>
                         </div>
-                        {{-- {{ $categories->links() }} --}}
+                        {{ $orders->links() }}
                     </div>
                 </div>
             </div>

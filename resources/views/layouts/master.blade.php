@@ -123,7 +123,7 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-header">MAIN MENU</li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('dashboard.index')}}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard

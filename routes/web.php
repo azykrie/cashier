@@ -1,12 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,6 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
 route::get('/history', [HistoryController::class, 'index'])->name('history.index');
+Route::get('/transaction/invoice', [InvoiceController::class, 'pdf']);
+
 

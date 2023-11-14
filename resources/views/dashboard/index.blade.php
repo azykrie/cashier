@@ -1,4 +1,4 @@
 @extends('layouts.master')
 @section('content')
-    <h1>TES</h1>
+    <livewire:dashboard.view>
 @endsection

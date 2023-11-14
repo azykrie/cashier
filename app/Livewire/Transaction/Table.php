@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Livewire\Transaction;
-
 use App\Models\Order;
 use App\Models\Product;
+use Livewire\Component;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
-use Livewire\Component;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class Table extends Component
 {
@@ -83,6 +83,13 @@ class Table extends Component
         }
 
         return redirect('transaction');
+    }
+
+    public function print()
+    {
+        $data = Transaction::all()->toArray();
+        $pdf = Pdf::loadView('livewire.transaction.invoice', $data);
+        return $pdf->download('example.pdf');
     }
 
     public function render()

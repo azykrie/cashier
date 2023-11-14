@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -13,7 +15,6 @@ class TransactionController extends Controller
     {
         return view('transaction.index');
     }
-
     /**
      * Show the form for creating a new resource.
      */

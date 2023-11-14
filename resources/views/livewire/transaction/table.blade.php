@@ -74,8 +74,7 @@
                                             <td>Rp.
                                                 {{ number_format($transaction->product->price * $transaction->quantity) }}
                                             </td>
-                                            <td><button type="submit"
-                                                    wire:click="delete({{ $transaction->id }})"
+                                            <td><button type="submit" wire:click="delete({{ $transaction->id }})"
                                                     class="btn btn-danger">Delete</button></td>
                                         </tr>
                                     </tbody>
@@ -104,6 +103,7 @@
                                         type="text" class="form-control" disabled>
                                 </div>
                                 <div class="card-body">
+                                    <a href="{{ url('transaction/invoice') }}" class="btn btn-warning">Print</a>
                                     <button wire:click='save' type="submit" class="btn btn-info">Pay</button>
                                 </div>
                             </table>
@@ -120,5 +120,6 @@
                 width: 40%;
                 display: inline;
             }
+            
         </style>
 </div>
